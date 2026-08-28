@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffbeb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#120d0b">
+  <title>TasteKeep — Support &amp; Privacy</title>
+  <meta name="description" content="Official support and privacy information for TasteKeep, the private offline recipe notebook.">
+  <style>
+    :root {
+      --page: #fffbeb;
+      --surface: #fff1ec;
+      --surface-raised: #ffffff;
+      --surface-accent: #ffd8cf;
+      --text: #241915;
+      --muted: #62514b;
+      --line: #a68f86;
+      --line-soft: #ead5ce;
+      --accent: #9a3412;
+      --accent-hover: #7c2d12;
+      --accent-text: #ffffff;
+      --focus: #2563eb;
+      --shadow: 0 20px 55px rgba(80, 38, 24, 0.12);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #120d0b;
+        --surface: #251715;
+        --surface-raised: #1c1311;
+        --surface-accent: #3b211c;
+        --text: #fff2ed;
+        --muted: #d6c1b9;
+        --line: #9b8178;
+        --line-soft: #4f3731;
+        --accent: #ffad99;
+        --accent-hover: #ffc1b2;
+        --accent-text: #2b1510;
+        --focus: #93c5fd;
+        --shadow: 0 20px 55px rgba(0, 0, 0, 0.36);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% -4%, var(--surface-accent) 0, transparent 28rem),
+        var(--page);
+      font-family: ui-rounded, "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 10;
+      inset: 12px auto auto 12px;
+      padding: 10px 14px;
+      color: var(--accent-text);
+      background: var(--accent);
+      border-radius: 10px;
+      font-weight: 750;
+      transform: translateY(-160%);
+      transition: transform 180ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(calc(100% - 24px), 920px);
+      margin-inline: auto;
+      padding: 24px 0 56px;
+    }
+
+    .site-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .identity {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(100, 43, 26, 0.18);
+    }
+
+    .mark svg { display: block; width: 100%; height: 100%; }
+    .mark-background { fill: var(--accent); }
+    .mark-bookmark { fill: var(--page); }
+    .mark-spoon { fill: var(--accent); }
+
+    .brand { display: block; font-size: 1.25rem; font-weight: 850; letter-spacing: -0.025em; }
+    .brand-note { display: block; color: var(--muted); font-size: 0.875rem; line-height: 1.3; }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line-soft);
+      border-radius: 999px;
+      background: var(--surface-raised);
+    }
+
+    .site-nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 15px;
+      border-radius: 999px;
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 180ms ease, background-color 180ms ease;
+    }
+
+    .site-nav a:hover { color: var(--accent); background: var(--surface); }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(30px, 8vw, 68px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface-raised);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 230px;
+      height: 230px;
+      right: -92px;
+      bottom: -112px;
+      border: 54px solid var(--surface-accent);
+      border-radius: 50%;
+      opacity: 0.78;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      color: var(--text);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin: 0 0 20px;
+      font-size: clamp(2.55rem, 10vw, 5.35rem);
+    }
+
+    h2 { margin: 64px 0 20px; font-size: clamp(1.8rem, 6vw, 2.6rem); }
+    h3 { margin: 0 0 10px; font-size: 1.12rem; }
+    p { max-width: 70ch; margin: 0 0 16px; text-wrap: pretty; }
+
+    .lead {
+      max-width: 57ch;
+      color: var(--muted);
+      font-size: clamp(1.06rem, 2.5vw, 1.28rem);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 20px;
+      border: 1.5px solid var(--accent);
+      border-radius: 999px;
+      color: var(--accent);
+      background: transparent;
+      font-weight: 800;
+      text-decoration: none;
+      transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+    .button.primary { color: var(--accent-text); background: var(--accent); }
+    .button.primary:hover { color: var(--accent-text); background: var(--accent-hover); }
+
+    .trust-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trust-list li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .trust-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .section-intro { color: var(--muted); margin-top: -8px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .card-number {
+      display: block;
+      margin-bottom: 26px;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    .policy {
+      margin-top: 64px;
+      padding: clamp(24px, 6vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface-raised);
+    }
+
+    .policy h2 { margin-top: 0; }
+    .policy h3 { margin-top: 30px; }
+    .effective { color: var(--muted); }
+
+    .policy-summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      margin: 26px 0 36px;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: 18px;
+      background: var(--line-soft);
+    }
+
+    .policy-summary div { padding: 18px; background: var(--surface); }
+    .policy-summary strong { display: block; margin-bottom: 3px; color: var(--accent); }
+    .policy-summary span { color: var(--muted); }
+
+    .contact-card {
+      margin-top: 28px;
+      padding: clamp(24px, 6vw, 44px);
+      border-radius: 28px;
+      color: var(--accent-text);
+      background: var(--accent);
+    }
+
+    .contact-card h2 { margin: 0 0 12px; color: inherit; }
+    .contact-card p { margin-bottom: 24px; color: inherit; opacity: 0.92; }
+    .contact-card .button { color: var(--accent); background: var(--accent-text); border-color: var(--accent-text); }
+    .contact-card .button:hover { color: var(--accent-hover); background: var(--surface-raised); }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer p { margin: 0; }
+
+    @media (min-width: 560px) {
+      .trust-list { grid-template-columns: repeat(3, max-content); gap: 22px; }
+      .policy-summary { grid-template-columns: repeat(3, 1fr); }
+      footer { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+
+    @media (min-width: 700px) {
+      .shell { width: min(calc(100% - 48px), 920px); padding-top: 34px; padding-bottom: 72px; }
+      .site-header { margin-bottom: 44px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .card { padding: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <main id="content" class="shell">
+    <header class="site-header">
+      <a class="identity" href="#content" aria-label="TasteKeep support home">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 1024 1024">
+            <rect class="mark-background" width="1024" height="1024" rx="220"/>
+            <path class="mark-bookmark" d="M326 148h372c60 0 108 48 108 108v548c0 29-33 46-56 28L512 650 274 832c-23 18-56 1-56-28V256c0-60 48-108 108-108Z"/>
+            <path class="mark-spoon" d="M512 270c-70 0-126 65-126 145 0 58 29 108 72 131 19 10 30 30 30 52v144c0 13 11 24 24 24s24-11 24-24V598c0-22 11-42 30-52 43-23 72-73 72-131 0-80-56-145-126-145Z"/>
+          </svg>
+        </span>
+        <span>
+          <span class="brand">TasteKeep</span>
+          <span class="brand-note">Support &amp; privacy</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">Your private recipe notebook</p>
+      <h1 id="hero-title">Your recipes. Together at last.</h1>
+      <p class="lead">Collect family favorites, find the right dish fast, and cook one clear step at a time — all without creating an account.</p>
+
+      <div class="actions">
+        <a class="button primary" href="mailto:uladzislau.vyskvarka@gmail.com?subject=TasteKeep%20Support">Contact support</a>
+        <a class="button" href="#privacy">Read our privacy policy</a>
+      </div>
+
+      <ul class="trust-list" aria-label="TasteKeep privacy highlights">
+        <li>Works offline</li>
+        <li>No account</li>
+        <li>No ads or tracking</li>
+      </ul>
+    </section>
+
+    <section id="support" aria-labelledby="support-title">
+      <h2 id="support-title">How can we help?</h2>
+      <p class="section-intro">Quick answers for the most common TasteKeep tasks.</p>
+
+      <div class="grid">
+        <article class="card">
+          <span class="card-number" aria-hidden="true">01</span>
+          <h3>Add and organize recipes</h3>
+          <p>Only a title is required. Add photos, ingredients, steps, meal categories, dish types, tags, notes, and a source whenever you are ready.</p>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">02</span>
+          <h3>Back up your collection</h3>
+          <p>Open Settings and choose Create Backup. Keep the resulting <code>.recipechest</code> file somewhere safe, then restore it from Settings when needed.</p>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">03</span>
+          <h3>Photos and permissions</h3>
+          <p>Camera and photo-library access are optional. TasteKeep asks only after you choose to add a photo to a recipe or cooking step.</p>
+        </article>
+        <article class="card">
+          <span class="card-number" aria-hidden="true">04</span>
+          <h3>Report a problem</h3>
+          <p>Email <a href="mailto:uladzislau.vyskvarka@gmail.com">uladzislau.vyskvarka@gmail.com</a>. Include your device model, iOS version, and a short description of what happened.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="privacy" class="policy" aria-labelledby="privacy-title">
+      <p class="eyebrow">Clear by design</p>
+      <h2 id="privacy-title">Privacy Policy</h2>
+      <p class="effective">Effective August 25, 2026</p>
+
+      <div class="policy-summary" aria-label="Privacy summary">
+        <div><strong>Local</strong><span>Your recipes stay on your device.</span></div>
+        <div><strong>Private</strong><span>No analytics, ads, or tracking.</span></div>
+        <div><strong>In your control</strong><span>You choose when to export or share.</span></div>
+      </div>
+
+      <h3>Summary</h3>
+      <p>TasteKeep is designed to keep your recipe collection private. The current version requires no account, includes no advertising or third-party analytics, and does not send your recipes to the developer.</p>
+
+      <h3>Data stored on your device</h3>
+      <p>Recipes, ingredients, cooking steps, notes, tags, favorites, settings, and copied images are stored locally on your device. Deleting the app may remove this local data.</p>
+
+      <h3>Camera and photo library</h3>
+      <p>Access is requested only after you choose to add a photo. Selected images are copied into the app’s private local storage and are not uploaded by TasteKeep.</p>
+
+      <h3>Backups, exports, and sharing</h3>
+      <p>TasteKeep creates or shares a recipe or backup file only after your explicit action. Apple’s system share sheet and the destination you choose may process that file under their own privacy terms.</p>
+
+      <h3>Data collection</h3>
+      <p>TasteKeep does not collect, track, sell, or transmit personal data to the developer. It does not use an advertising identifier, analytics SDK, crash-reporting SDK, or cloud synchronization service in this version.</p>
+
+      <h3>Children’s privacy</h3>
+      <p>TasteKeep does not knowingly collect personal information from children or any other users because it does not operate a developer-controlled data collection service.</p>
+
+      <h3>Changes to this policy</h3>
+      <p>If a future version introduces analytics, cloud sync, payments, accounts, or another external service, this policy and the App Store privacy disclosure will be updated before that version is released.</p>
+
+      <h3>Contact</h3>
+      <p>For privacy questions or support, email <a href="mailto:uladzislau.vyskvarka@gmail.com">uladzislau.vyskvarka@gmail.com</a>.</p>
+    </section>
+
+    <section class="contact-card" aria-labelledby="contact-title">
+      <h2 id="contact-title">Still need a hand?</h2>
+      <p>Tell us what went wrong and we’ll help you get back to your recipes.</p>
+      <a class="button" href="mailto:uladzislau.vyskvarka@gmail.com?subject=TasteKeep%20Support">Email TasteKeep support</a>
+    </section>
+
+    <footer>
+      <p>© 2026 Uladzislau Vyskvarka</p>
+      <p>TasteKeep keeps your recipes on your device.</p>
+    </footer>
+  </main>
+</body>
+</html>
