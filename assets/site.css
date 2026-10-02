@@ -400,11 +400,15 @@ footer p { margin: 0; }
 .facts div { padding: 16px 18px; background: var(--surface); }
 .facts dt { margin: 0 0 2px; color: var(--accent); font-weight: 800; }
 .facts dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+/* A 44 px tap height without moving the text. */
+.facts dd a { display: inline-block; padding-block: 12px; margin-block: -12px; }
 
 .plain-list { margin: 0; padding-left: 1.2em; }
 .plain-list li + li { margin-top: 6px; }
 
 .download-note { color: var(--muted); font-size: 0.94rem; }
+
+.press-contact { margin: 20px 0 0; color: var(--muted); overflow-wrap: anywhere; }
 
 .store-badge {
   display: inline-block;
@@ -416,6 +420,8 @@ footer p { margin: 0; }
 
 .store-badge img { width: auto; height: 54px; }
 .store-badge:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.release-note { max-width: 46ch; margin: 0; color: var(--muted); font-weight: 650; }
 
 .badge-row {
   display: flex;
@@ -491,4 +497,7 @@ footer p { margin: 0; }
 @media (min-width: 700px) {
   .screens.pad { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feature { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  /* Cook and its screenshot fill the right column beside the other four cards. */
+  .feature-tall { display: flex; flex-direction: column; grid-row: span 4; }
+  .feature-tall .feature-figure { margin: auto; padding-top: 12px; }
 }
