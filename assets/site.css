@@ -423,6 +423,12 @@ footer p { margin: 0; }
 
 .release-note { max-width: 46ch; margin: 0; color: var(--muted); font-weight: 650; }
 
+/* The home heading breaks after the comma: "Your recipes, / in one private book." */
+@media (min-width: 1000px) {
+  .home-title { max-width: 15ch; }
+  .home-title .tail { white-space: nowrap; }
+}
+
 .badge-row {
   display: flex;
   flex-wrap: wrap;
