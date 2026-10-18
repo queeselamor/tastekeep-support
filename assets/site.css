@@ -354,6 +354,9 @@ footer p { margin: 0; }
 
 .screens.pad { grid-template-columns: 1fr; margin-top: 18px; }
 
+.duo-shot { margin: 18px 0 0; }
+.duo-shot img { display: block; width: 100%; height: auto; border-radius: var(--radius-md); }
+
 .screens img {
   display: block;
   width: 100%;
