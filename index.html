@@ -6,17 +6,17 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffbeb">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#120d0b">
-  <title>TasteKeep: Recipe Keeper · Support and Privacy</title>
-  <meta name="description" content="Official support and privacy information for TasteKeep, the private offline recipe notebook.">
+  <title>TasteKeep: Recipe Keeper for iPhone and iPad</title>
+  <meta name="description" content="TasteKeep is a private recipe book for iPhone and iPad: paste a link to import a recipe and cook with a timer on the Lock Screen. Support and privacy policy.">
   <link rel="icon" href="assets/tastekeep-icon-256.png">
   <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <main id="content" class="shell">
+  <main id="content" class="shell wide">
     <header class="site-header">
-      <a class="identity" href="#content" aria-label="TasteKeep support home">
+      <a class="identity" href="./" aria-label="TasteKeep home">
         <span class="mark" aria-hidden="true">
           <svg viewBox="0 0 1024 1024">
             <rect class="mark-background" width="1024" height="1024" rx="220"/>
@@ -24,10 +24,7 @@
             <path class="mark-spoon" d="M512 270c-70 0-126 65-126 145 0 58 29 108 72 131 19 10 30 30 30 52v144c0 13 11 24 24 24s24-11 24-24V598c0-22 11-42 30-52 43-23 72-73 72-131 0-80-56-145-126-145Z"/>
           </svg>
         </span>
-        <span>
-          <span class="brand">TasteKeep</span>
-          <span class="brand-note">Support &amp; privacy</span>
-        </span>
+        <span class="brand">TasteKeep</span>
       </a>
 
       <nav class="site-nav" aria-label="Site">
@@ -37,26 +34,69 @@
       </nav>
     </header>
 
-    <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow">Private recipe book for iPhone and iPad</p>
-      <h1 id="hero-title" class="home-title">Your recipes, <span class="tail">in&nbsp;one private&nbsp;book.</span></h1>
-      <p class="lead">Keep your family recipes with photos and steps, then plan the week from them. No account, no subscription.</p>
-
-      <div class="actions">
-        <a class="button primary" href="mailto:uladzislau.vyskvarka@icloud.com?subject=TasteKeep%20Support">Contact support</a>
-        <a class="button" href="#privacy">Read our privacy policy</a>
+    <section class="top" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Recipe book for iPhone and iPad</p>
+        <h1 id="hero-title" class="home-title">Your recipes, <span class="tail">in&nbsp;one private&nbsp;book.</span></h1>
+        <p class="lead">Keep family recipes with photos and steps, or paste a link and TasteKeep fills one in for you. Cook with a timer on the Lock Screen and plan the week from your own book.</p>
+        <div class="cta">
+          <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=site&amp;mt=8"><img src="assets/app-store-badge.svg" width="174" height="58" alt="Download on the App Store"></a>
+          <p class="cta-note">Free on the App Store.<br>No account, no subscription.</p>
+        </div>
       </div>
-
-      <div class="badge-row">
-        <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=site&amp;mt=8"><img src="assets/app-store-badge.svg" width="162" height="54" alt="Download on the App Store"></a>
-        <p class="release-note">Version 1.1 is out: weekly meal planner, shopping lists sorted by aisle, Lock Screen cooking timers and a full iPad layout.</p>
+      <div class="phone">
+        <img src="assets/screens/collection.webp" width="720" height="1469" alt="TasteKeep on iPhone: My Recipes with search, meal filters and recipe cards with photos.">
       </div>
+    </section>
 
-      <ul class="trust-list" aria-label="TasteKeep privacy highlights">
-        <li>Works offline</li>
-        <li>No account</li>
-        <li>No ads or tracking</li>
-      </ul>
+    <div class="features" id="features">
+      <section class="feature-row" aria-labelledby="f-import">
+        <div class="shot"><img src="assets/screens/imported.webp" width="720" height="1469" loading="lazy" alt="A recipe imported from a link: the title, photo and cooking time filled in, with a note to check it before saving."></div>
+        <div>
+          <p class="kicker">Import</p>
+          <h2 id="f-import">Paste a link, get the recipe</h2>
+          <p>Paste the address of a recipe page, and TasteKeep fills in the title, photo, ingredients and steps. You check them against the site and save.</p>
+          <p>Reading a recipe in Safari? Tap Share and choose TasteKeep. A note works too: paste its text.</p>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="f-cook">
+        <div class="shot"><img src="assets/screens/cooking.webp" width="720" height="1469" loading="lazy" alt="Cooking mode: one step in large type with its photo and a running timer."></div>
+        <div>
+          <p class="kicker">Cook</p>
+          <h2 id="f-cook">One step at a time, timer included</h2>
+          <p>Cooking mode shows each step in large type with its photo. Start the timer inside the step and lock the phone: the countdown stays on the Lock Screen and in the Dynamic Island.</p>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="f-plan">
+        <div class="shot"><img src="assets/screens/planner.webp" width="720" height="1469" loading="lazy" alt="The weekly meal plan with breakfast and dinner planned for the week."></div>
+        <div>
+          <p class="kicker">Plan <span class="pro">Pro</span></p>
+          <h2 id="f-plan">Plan the week from your recipes</h2>
+          <p>Put recipes on breakfast, lunch and dinner, save a good week as a template and use it again. When the week is set, turn the plan into a shopping list.</p>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="f-shop">
+        <div class="shot"><img src="assets/screens/shopping.webp" width="720" height="1469" loading="lazy" alt="A shopping list grouped by aisle: produce, bakery, dairy and eggs."></div>
+        <div>
+          <p class="kicker">Shop <span class="pro">Pro</span></p>
+          <h2 id="f-shop">A shopping list sorted by aisle</h2>
+          <p>TasteKeep groups the list by store aisle and adds up quantities from your recipes. Keep a list for each store and share it with your family.</p>
+        </div>
+      </section>
+    </div>
+
+    <section class="privacy-band" aria-label="Privacy">
+      <div class="card"><strong>No account, no tracking</strong><p>You open the app and start. The App Store label reads “Data Not Collected”.</p></div>
+      <div class="card"><strong>On your iPhone and in your iCloud</strong><p>Recipes stay on your device. Turn on iCloud sync, and they reach your iPad through your own Apple Account.</p></div>
+    </section>
+
+    <section class="band" aria-labelledby="band-title">
+      <h2 id="band-title">Start your recipe book</h2>
+      <p>Free for iPhone and iPad. Pro is a one&#8209;time purchase.</p>
+      <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=site&amp;mt=8"><img src="assets/app-store-badge.svg" width="174" height="58" alt="Download on the App Store"></a>
     </section>
 
     <section id="support" aria-labelledby="support-title">
@@ -146,9 +186,13 @@
       <a class="button" href="mailto:uladzislau.vyskvarka@icloud.com?subject=TasteKeep%20Support">Email TasteKeep support</a>
     </section>
 
-    <footer>
+    <footer class="site-footer">
       <p>© 2026 Uladzislau Vyskvarka</p>
-      <p>TasteKeep keeps your recipes on your device.</p>
+      <nav aria-label="Footer">
+        <a href="#privacy">Privacy policy</a>
+        <a href="press/">Press kit</a>
+        <a href="links/">Links</a>
+      </nav>
     </footer>
   </main>
 </body>

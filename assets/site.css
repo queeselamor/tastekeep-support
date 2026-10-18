@@ -508,17 +508,212 @@ footer p { margin: 0; }
   .feature-tall .feature-figure { margin: auto; padding-top: 12px; }
 }
 
-/* Ad landing pages (/go/…): the App Store badge first, large, then the copy
-   and one store card. No scripts, no redirect. */
-.go-icon { width: 44px; height: 44px; border-radius: 10px; }
-.hero.go h1 { margin-top: 0; }
-.go-badge { margin: 4px -10px 6px; }
-.go-badge img { height: 64px; }
-.go-card {
+/* Product pages: the home page and the ad landing pages (/go/…).
+   Open layout, the App Store badge first, real iPhone screens in Apple's bezel. No scripts, no redirect. */
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+  padding: clamp(8px, 3vw, 24px) 0 clamp(24px, 6vw, 56px);
+}
+
+.top h1 { max-width: 13ch; margin: 0 0 18px; font-size: clamp(2.5rem, 9.5vw, 4.2rem); }
+.top .lead { margin-bottom: 26px; }
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.cta .store-badge img { height: 58px; }
+
+.cta-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.phone {
+  position: relative;
+  width: min(72%, 300px);
+  margin: 0 auto;
+}
+
+.phone::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8% -22% 6%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, var(--surface-accent), transparent);
+  opacity: 0.9;
+}
+
+.phone img,
+.shot img {
   display: block;
-  width: min(100%, 420px);
+  width: 100%;
   height: auto;
-  margin: 28px auto 0;
-  border-radius: 28px;
-  box-shadow: var(--shadow);
+  filter: drop-shadow(0 24px 34px rgba(80, 38, 24, 0.22));
+}
+
+.section-head { max-width: 40rem; margin: 0 auto 28px; text-align: center; }
+.section-head h2 { margin: 0 0 10px; }
+.section-head p { margin: 0 auto; color: var(--muted); }
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pro {
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--accent-text);
+  background: var(--accent);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+/* Home: one feature per row, screen and text side by side from 760 px, alternating. */
+.features { display: grid; gap: clamp(48px, 9vw, 96px); margin-top: clamp(40px, 8vw, 72px); }
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.feature-row h2 { margin: 0 0 14px; font-size: clamp(1.75rem, 5.5vw, 2.5rem); }
+.feature-row p { color: var(--muted); font-size: 1.06rem; }
+.feature-row p:last-child { margin-bottom: 0; }
+.feature-row .shot { order: 2; width: min(58%, 250px); margin: 0 auto; }
+
+/* Landing pages: steps and a grid of small screens. */
+.steps,
+.screens-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li,
+.screens-grid li {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.steps .shot,
+.screens-grid .shot { width: 100%; }
+.steps .shot img,
+.screens-grid .shot img { filter: drop-shadow(0 10px 16px rgba(80, 38, 24, 0.18)); }
+
+.steps h3,
+.screens-grid h3 { margin: 0 0 6px; font-size: 1.12rem; }
+.steps p,
+.screens-grid p { margin: 0; color: var(--muted); font-size: 0.98rem; }
+
+.step-number {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  color: var(--accent-text);
+  background: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 850;
+}
+
+.aside-note { margin: 22px auto 0; color: var(--muted); text-align: center; }
+
+.privacy-band {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: clamp(56px, 10vw, 104px);
+}
+
+.privacy-band .card strong { display: block; margin-bottom: 6px; color: var(--accent); font-size: 1.05rem; }
+
+.band {
+  margin-top: clamp(56px, 10vw, 96px);
+  padding: clamp(28px, 7vw, 56px);
+  border-radius: var(--radius-lg);
+  color: var(--accent-text);
+  background: var(--accent);
+  text-align: center;
+}
+
+.band h2 { margin: 0 0 12px; color: inherit; }
+.band p { margin: 0 auto 26px; color: inherit; opacity: 0.92; }
+.band .store-badge img { height: 58px; }
+
+.go-header { margin-bottom: 8px; }
+.go-icon { width: 44px; height: 44px; border-radius: 10px; }
+.go-section { margin-top: clamp(48px, 9vw, 88px); }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 24px;
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p { margin: 0; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--accent); }
+
+@media (min-width: 560px) {
+  .privacy-band { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .screens-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .screens-grid li { grid-template-columns: 1fr; text-align: center; }
+  .screens-grid .shot { width: min(70%, 200px); margin: 0 auto; }
+}
+
+@media (min-width: 760px) {
+  .shell.wide { width: min(calc(100% - 48px), 1080px); }
+  .top { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 48px; }
+  .top h1 { max-width: none; }
+  .phone { width: min(100%, 320px); }
+  .feature-row { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 56px; }
+  .feature-row .shot { order: 0; width: min(100%, 280px); }
+  .feature-row:nth-child(even) .shot { order: 2; }
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .steps li { grid-template-columns: 1fr; align-content: start; }
+  .steps .shot { width: min(78%, 200px); margin: 0 auto 6px; }
+}
+
+@media (min-width: 1000px) {
+  .screens-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }

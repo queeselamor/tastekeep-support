@@ -13,24 +13,61 @@
   <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
-  <main id="content" class="shell">
-    <header class="site-header">
+  <main id="content" class="shell wide">
+    <header class="site-header go-header">
       <span class="identity">
         <img class="go-icon" src="../../assets/tastekeep-icon-256.png" width="44" height="44" alt="">
         <span class="brand">TasteKeep</span>
       </span>
     </header>
 
-    <section class="hero go" aria-labelledby="go-title">
-      <h1 id="go-title">Paste a link, get the recipe</h1>
-      <a class="store-badge go-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=ads-meta-import&amp;mt=8&amp;ppid=e52dc1ff-af5d-448e-9d21-6b9197ac9111"><img src="../../assets/app-store-badge.svg" width="192" height="64" alt="Download on the App Store"></a>
-      <p class="lead">Found a recipe online? Paste the link into TasteKeep, and it fills in the title, photo, ingredients and steps. From Safari, tap Share and choose TasteKeep. Check the recipe, save it, cook from it with step-by-step mode and Lock Screen timers. Free on the App Store for iPhone and iPad. No account, no subscription.</p>
-      <img class="go-card" src="paste-a-link.jpg" width="420" height="912" alt="TasteKeep on iPhone: a recipe link pasted into the import sheet becomes a recipe with its title, photo, ingredients and steps.">
+    <section class="top" aria-labelledby="go-title">
+      <div>
+        <h1 id="go-title">Paste a link, get the recipe</h1>
+        <p class="lead">Found a recipe online? Paste the link into TasteKeep, and it fills in the title, photo, ingredients and steps.</p>
+        <div class="cta">
+          <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=ads-meta-import&amp;mt=8&amp;ppid=e52dc1ff-af5d-448e-9d21-6b9197ac9111"><img src="../../assets/app-store-badge.svg" width="174" height="58" alt="Download on the App Store"></a>
+          <p class="cta-note">Free for iPhone and iPad.<br>No account, no subscription.</p>
+        </div>
+      </div>
+      <div class="phone">
+        <img src="../../assets/screens/imported.webp" width="720" height="1469" alt="TasteKeep on iPhone: a recipe imported from a link, with its title, photo and cooking time filled in.">
+      </div>
     </section>
 
-    <footer>
+    <section class="go-section" aria-labelledby="how-title">
+      <div class="section-head">
+        <h2 id="how-title">How it works</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="shot"><img src="../../assets/screens/import-link.webp" width="720" height="1469" loading="lazy" alt="The Import a recipe sheet with a recipe page link pasted in."></div>
+          <div><span class="step-number">1</span><h3>Paste the link</h3><p>Copy the address of a recipe page and paste it into TasteKeep.</p></div>
+        </li>
+        <li>
+          <div class="shot"><img src="../../assets/screens/imported.webp" width="720" height="1469" loading="lazy" alt="The imported recipe with a note to check it before saving."></div>
+          <div><span class="step-number">2</span><h3>Check and save</h3><p>TasteKeep fills in the form. You compare it with the site and tap Save.</p></div>
+        </li>
+        <li>
+          <div class="shot"><img src="../../assets/screens/recipe.webp" width="720" height="1469" loading="lazy" alt="The saved recipe with its photo, ingredients and a Start cooking button."></div>
+          <div><span class="step-number">3</span><h3>Cook from it</h3><p>Open cooking mode and start a timer that stays on the Lock Screen.</p></div>
+        </li>
+      </ol>
+      <p class="aside-note">Reading the recipe in Safari? Tap Share and choose TasteKeep.</p>
+    </section>
+
+    <section class="band" aria-labelledby="band-title">
+      <h2 id="band-title">Your recipes, in one private book</h2>
+      <p>Free on the App Store. Pro is a one&#8209;time purchase.</p>
+      <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=ads-meta-import&amp;mt=8&amp;ppid=e52dc1ff-af5d-448e-9d21-6b9197ac9111"><img src="../../assets/app-store-badge.svg" width="174" height="58" alt="Download on the App Store"></a>
+    </section>
+
+    <footer class="site-footer">
       <p>© 2026 Uladzislau Vyskvarka</p>
-      <p><a href="../../">Support</a></p>
+      <nav aria-label="Footer">
+        <a href="../../#privacy">Privacy policy</a>
+        <a href="../../">TasteKeep site</a>
+      </nav>
     </footer>
   </main>
 </body>
