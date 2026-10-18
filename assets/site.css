@@ -3,8 +3,8 @@
   --surface: #fff1ec;
   --surface-raised: #ffffff;
   --surface-accent: #ffd8cf;
-  --text: #241915;
-  --muted: #62514b;
+  --text: #171311;
+  --muted: #5c4a42;
   --line: #a68f86;
   --line-soft: #ead5ce;
   --accent: #9a3412;
@@ -45,12 +45,12 @@ body {
   min-width: 320px;
   margin: 0;
   color: var(--text);
-  background:
-    radial-gradient(circle at 8% -4%, var(--surface-accent) 0, transparent 28rem),
-    var(--page);
-  font-family: ui-rounded, "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
+  background: var(--page);
+  /* Apple's system face: SF Pro on iPhone, iPad and Mac, the platform face elsewhere. No web fonts, no third-party requests. */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  letter-spacing: -0.012em;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -114,7 +114,7 @@ a:focus-visible {
 .mark-bookmark { fill: var(--page); }
 .mark-spoon { fill: var(--accent); }
 
-.brand { display: block; font-size: 1.25rem; font-weight: 850; letter-spacing: -0.025em; }
+.brand { display: block; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.022em; }
 .brand-note { display: block; color: var(--muted); font-size: 0.875rem; line-height: 1.3; }
 
 .site-nav {
@@ -152,34 +152,24 @@ a:focus-visible {
   box-shadow: var(--shadow);
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 230px;
-  height: 230px;
-  right: -92px;
-  bottom: -112px;
-  border: 54px solid var(--surface-accent);
-  border-radius: 50%;
-  opacity: 0.78;
-}
-
 .eyebrow {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 850;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
 }
 
 h1, h2, h3 {
   color: var(--text);
-  line-height: 1.12;
-  letter-spacing: -0.035em;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
   text-wrap: balance;
 }
+
+h3 { letter-spacing: -0.016em; line-height: 1.2; }
 
 h1 {
   max-width: 12ch;
@@ -209,7 +199,7 @@ p { max-width: 70ch; margin: 0 0 16px; text-wrap: pretty; }
   border-radius: 999px;
   color: var(--accent);
   background: transparent;
-  font-weight: 800;
+  font-weight: 600;
   text-decoration: none;
   transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
@@ -265,7 +255,7 @@ p { max-width: 70ch; margin: 0 0 16px; text-wrap: pretty; }
   margin-bottom: 26px;
   color: var(--accent);
   font-size: 0.76rem;
-  font-weight: 850;
+  font-weight: 600;
   letter-spacing: 0.12em;
 }
 
@@ -398,7 +388,7 @@ footer p { margin: 0; }
 }
 
 .facts div { padding: 16px 18px; background: var(--surface); }
-.facts dt { margin: 0 0 2px; color: var(--accent); font-weight: 800; }
+.facts dt { margin: 0 0 2px; color: var(--accent); font-weight: 600; }
 .facts dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
 /* A 44 px tap height without moving the text. */
 .facts dd a { display: inline-block; padding-block: 12px; margin-block: -12px; }
@@ -477,7 +467,7 @@ footer p { margin: 0; }
   margin: 36px 0 12px;
   color: var(--muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -541,18 +531,9 @@ footer p { margin: 0; }
 
 .phone {
   position: relative;
+  isolation: isolate;
   width: min(72%, 300px);
   margin: 0 auto;
-}
-
-.phone::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 8% -22% 6%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, var(--surface-accent), transparent);
-  opacity: 0.9;
 }
 
 .phone img,
@@ -571,12 +552,11 @@ footer p { margin: 0; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.012em;
 }
 
 .pro {
@@ -584,8 +564,10 @@ footer p { margin: 0; }
   border-radius: 999px;
   color: var(--accent-text);
   background: var(--accent);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 /* Home: one feature per row, screen and text side by side from 760 px, alternating. */
@@ -646,7 +628,7 @@ footer p { margin: 0; }
   color: var(--accent-text);
   background: var(--accent);
   font-size: 0.85rem;
-  font-weight: 850;
+  font-weight: 600;
 }
 
 .aside-note { margin: 22px auto 0; color: var(--muted); text-align: center; }
@@ -673,6 +655,23 @@ footer p { margin: 0; }
 .band p { margin: 0 auto 26px; color: inherit; opacity: 0.92; }
 .band .store-badge img { height: 58px; }
 
+.founder {
+  max-width: 40rem;
+  margin: clamp(56px, 10vw, 96px) auto 0;
+  text-align: center;
+}
+
+.founder img {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+}
+
+.founder blockquote { margin: 0; }
+.founder blockquote p { margin: 0 auto 12px; font-size: clamp(1.1rem, 2.6vw, 1.3rem); line-height: 1.55; }
+.founder figcaption { color: var(--muted); font-weight: 600; }
+
 .go-header { margin-bottom: 8px; }
 .go-icon { width: 44px; height: 44px; border-radius: 10px; }
 .go-section { margin-top: clamp(48px, 9vw, 88px); }
@@ -690,8 +689,9 @@ footer p { margin: 0; }
 }
 
 .site-footer p { margin: 0; }
-.site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
-.site-footer a { color: var(--muted); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 0 18px; }
+/* A 44 px tap height without moving the text. */
+.site-footer a { display: inline-block; padding-block: 12px; margin-block: -12px; color: var(--muted); }
 .site-footer a:hover { color: var(--accent); }
 
 @media (min-width: 560px) {
