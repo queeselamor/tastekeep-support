@@ -111,10 +111,23 @@
       <section class="band" aria-labelledby="save-title">
         <h2 id="save-title">Keep this recipe on your phone</h2>
         <p>Paste the link to this page into Import in TasteKeep, or tap Share on this page and choose TasteKeep. The recipe lands in your book with the photo, ingredients and steps, and cooking mode runs the 45-minute timer for you.</p>
-        <!-- 1.3.2: "Save in TasteKeep" button (tastekeep://app/import?url=…) goes back here once 1.3.2 is in the App Store -->
+        <p class="save-row"><a class="button" href="tastekeep://app/import?url=https%3A%2F%2Fqueeselamor.github.io%2Ftastekeep-support%2Frecipes%2Fhalloween-apple-pie%2F" data-store="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=recipe-halloween-apple-pie&amp;mt=8" onclick="return openInTasteKeep(event, this)">Save in TasteKeep</a></p>
         <a class="store-badge" href="https://apps.apple.com/app/apple-store/id6805066789?pt=129091971&amp;ct=recipe-halloween-apple-pie&amp;mt=8"><img src="../../assets/app-store-badge.svg" width="174" height="58" alt="Download on the App Store"></a>
         <p class="cta-note">TasteKeep for iPhone and iPad. Free on the App Store. No account, no subscription.</p>
       </section>
+      <script>
+        // "Save in TasteKeep": opens the app's import sheet with this page (TasteKeep 1.3.2 and later);
+        // if nothing opens within 1.5 s, the App Store page takes over.
+        function openInTasteKeep(event, link) {
+          event.preventDefault();
+          var started = Date.now();
+          window.location.href = link.getAttribute('href');
+          setTimeout(function () {
+            if (!document.hidden && Date.now() - started < 2500) window.location.href = link.getAttribute('data-store');
+          }, 1500);
+          return false;
+        }
+      </script>
 
       <p class="download-note">From <a href="https://youtube.com/shorts/c3oXXQlFzUo">the video</a>. Photo: a frame from the Pexels series used in it.</p>
     </article>

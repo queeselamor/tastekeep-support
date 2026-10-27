@@ -787,3 +787,9 @@ h2 { font-size: clamp(1.5rem, 5vw, 2.1rem); }
 .method li + li { margin-top: 18px; }
 .method li::before { content: counter(step); position: absolute; left: 0; top: -2px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--on-surface-accent); background: var(--surface-accent); font-size: 0.9375rem; font-weight: 600; }
 .recipe-card { border-width: 1px; }
+
+/* "Save in TasteKeep" on the terracotta band: the band's colours swapped, as the contact card does. */
+.band .save-row { margin: 0 0 18px; }
+.band .button { min-width: 220px; color: var(--accent); background: var(--accent-text); border-color: var(--accent-text); font-weight: 700; }
+.band .button:hover { color: var(--accent-hover); background: var(--page); border-color: var(--page); }
+.band ~ .download-note { margin-top: 16px; }
