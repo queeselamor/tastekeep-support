@@ -1,36 +1,44 @@
+/* Colours of the app: Material 3 tonal spot from the app's seed #9A3412 (lib/app.dart, tasteKeepTheme),
+   scaffold #FFFBEB / #120F0D. Cards are surfaceContainerLow with the outline, as in the app. */
 :root {
   --page: #fffbeb;
-  --surface: #fff1ec;
-  --surface-raised: #ffffff;
-  --surface-accent: #ffd8cf;
-  --text: #171311;
-  --muted: #5c4a42;
-  --line: #a68f86;
-  --line-soft: #ead5ce;
-  --accent: #9a3412;
-  --accent-hover: #7c2d12;
+  --surface: #fff1ed;           /* surfaceContainerLow: recipe cards, lists */
+  --surface-raised: #fff1ed;
+  --surface-accent: #ffdbd1;    /* primaryContainer: step numbers */
+  --on-surface-accent: #723522;
+  --text: #231917;
+  --muted: #53433f;             /* onSurfaceVariant */
+  --line: #85736e;              /* outline */
+  --line-soft: #d8c2bc;         /* outlineVariant */
+  --accent: #8f4c37;            /* primary: Start cooking */
+  --accent-hover: #723522;
   --accent-text: #ffffff;
   --focus: #2563eb;
-  --shadow: 0 20px 55px rgba(80, 38, 24, 0.12);
-  --radius-lg: 32px;
-  --radius-md: 22px;
+  --shadow: 0 12px 32px rgba(80, 38, 24, 0.10);
+  --radius-lg: 20px;            /* cards */
+  --radius-md: 20px;
+  --radius-button: 16px;        /* filled and outlined buttons, fields */
+  --radius-chip: 12px;
+  --brand: #9a3412;             /* the app icon, the same in both themes */
+  --brand-paper: #fffbeb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --page: #120d0b;
-    --surface: #251715;
-    --surface-raised: #1c1311;
-    --surface-accent: #3b211c;
-    --text: #fff2ed;
-    --muted: #d6c1b9;
-    --line: #9b8178;
-    --line-soft: #4f3731;
-    --accent: #ffad99;
-    --accent-hover: #ffc1b2;
-    --accent-text: #2b1510;
+    --page: #120f0d;
+    --surface: #231917;
+    --surface-raised: #231917;
+    --surface-accent: #723522;
+    --on-surface-accent: #ffdbd1;
+    --text: #f1dfda;
+    --muted: #d8c2bc;
+    --line: #a08c87;
+    --line-soft: #53433f;
+    --accent: #ffb59f;
+    --accent-hover: #ffdbd1;
+    --accent-text: #561f0e;
     --focus: #93c5fd;
-    --shadow: 0 20px 55px rgba(0, 0, 0, 0.36);
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.36);
   }
 }
 
@@ -110,9 +118,9 @@ a:focus-visible {
 }
 
 .mark svg { display: block; width: 100%; height: 100%; }
-.mark-background { fill: var(--accent); }
-.mark-bookmark { fill: var(--page); }
-.mark-spoon { fill: var(--accent); }
+.mark-background { fill: var(--brand); }
+.mark-bookmark { fill: var(--brand-paper); }
+.mark-spoon { fill: var(--brand); }
 
 .brand { display: block; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.022em; }
 .brand-note { display: block; color: var(--muted); font-size: 0.875rem; line-height: 1.3; }
@@ -740,3 +748,42 @@ footer p { margin: 0; }
 .recipe-card .ico { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 .recipe-card-tags { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--accent); font-size: 0.875rem; }
 @media (prefers-reduced-motion: reduce) { .recipe-card { transition: none; } .recipe-card:hover, .recipe-card:active { transform: none; } }
+
+
+/* App look (27.10): the site follows the app's screens. Headings sit on the page as the app's titles do
+   ("What shall we cook?"), no raised white panel; cards are outlined surfaces; buttons and fields have the
+   app's 16 px corners, chips 12 px. */
+.hero { padding: 8px 4px 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; overflow: visible; }
+h1 { font-size: clamp(2.2rem, 8.5vw, 3.6rem); max-width: 16ch; }
+h2 { font-size: clamp(1.5rem, 5vw, 2.1rem); }
+.top h1 { font-size: clamp(2.2rem, 8.5vw, 3.6rem); }
+.site-nav { padding: 4px; border: 1px solid var(--line); border-radius: var(--radius-button); background: transparent; }
+.site-nav a { min-height: 44px; border-radius: var(--radius-chip); font-weight: 600; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--accent); background: var(--surface); }
+.button { min-height: 52px; border-radius: var(--radius-button); border-width: 1px; border-color: var(--line); color: var(--accent); }
+.button.primary { border-color: var(--accent); }
+.button:hover { transform: none; background: var(--surface); }
+.button.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.card, .steps li, .screens-grid li { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.policy, .facts, .policy-summary { border-color: var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.band, .contact-card { border-radius: var(--radius-lg); }
+.mark { border-radius: 12px; box-shadow: none; }
+
+/* Recipe page: the app's recipe screen. Photo with the title over it, chips for time, servings and meal,
+   ingredients as an outlined list with amounts on the right, steps with numbers in tinted circles. */
+.recipe-hero { position: relative; margin: 8px 0 16px; overflow: hidden; border-radius: var(--radius-lg); background: #2a1f1b; }
+.recipe-hero img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.recipe-hero::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.62)); }
+.recipe-hero h1 { position: absolute; z-index: 1; left: 20px; right: 20px; bottom: 16px; margin: 0; max-width: none; color: #fff; font-size: clamp(1.8rem, 7vw, 2.8rem); text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+.recipe-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; }
+.recipe-chips li { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--radius-chip); color: var(--text); font-size: 0.9375rem; }
+.recipe-chips .ico { width: 18px; height: 18px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ingredients { margin: 0; padding: 0 16px; list-style: none; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
+.ingredients li { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; padding: 12px 0; }
+.ingredients li + li { border-top: 1px solid var(--line-soft); }
+.ingredients .amt { flex: none; font-size: 0.875rem; font-weight: 600; color: var(--text); text-align: right; }
+.method { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.method li { position: relative; min-height: 32px; padding-left: 48px; counter-increment: step; }
+.method li + li { margin-top: 18px; }
+.method li::before { content: counter(step); position: absolute; left: 0; top: -2px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: var(--on-surface-accent); background: var(--surface-accent); font-size: 0.9375rem; font-weight: 600; }
+.recipe-card { border-width: 1px; }
