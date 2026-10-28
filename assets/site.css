@@ -793,3 +793,11 @@ h2 { font-size: clamp(1.5rem, 5vw, 2.1rem); }
 .band .button { min-width: 220px; color: var(--accent); background: var(--accent-text); border-color: var(--accent-text); font-weight: 700; }
 .band .button:hover { color: var(--accent-hover); background: var(--page); border-color: var(--page); }
 .band ~ .download-note { margin-top: 16px; }
+
+/* The same four tabs on every page (Recipes, Support, Privacy, Press). On a phone the bar takes the full width
+   under the name and shares it equally, so all four fit at 320 px. */
+.site-nav a[aria-current] { color: var(--accent); background: var(--surface); }
+@media (max-width: 559px) {
+  .site-nav { flex: 1 1 100%; }
+  .site-nav a { flex: 1 1 0; justify-content: center; padding: 8px 6px; font-size: 1rem; }
+}
