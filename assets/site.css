@@ -778,6 +778,9 @@ h2 { font-size: clamp(1.5rem, 5vw, 2.1rem); }
 .recipe-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; padding: 0; list-style: none; }
 .recipe-chips li { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--radius-chip); color: var(--text); font-size: 0.9375rem; }
 .recipe-chips .ico { width: 18px; height: 18px; fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ingredient-group { margin: 22px 0 10px; font-size: 1.02rem; color: var(--muted, inherit); }
+h2 + .ingredient-group { margin-top: 0; }
+.ingredients + .ingredient-group { margin-top: 22px; }
 .ingredients { margin: 0; padding: 0 16px; list-style: none; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); }
 .ingredients li { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; padding: 12px 0; }
 .ingredients li + li { border-top: 1px solid var(--line-soft); }
